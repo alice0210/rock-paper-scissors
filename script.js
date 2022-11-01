@@ -11,9 +11,9 @@ function getComputerChoice() {
     }      
 }
 
-console.log(getComputerChoice());
-
 const computerSelection = getComputerChoice();
+
+console.log(computerSelection);
 
 function playRound(playerSelection, computerSelection) {
 
@@ -25,7 +25,7 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection === "scissors") {
             return "You Win! Rock beats Scissors.";
-        } else if (computerSelection === "paper") {
+        } else {
             return "You Lose! Paper beats Rock.";
         }
     }
@@ -34,7 +34,7 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection === "rock") {
             return "You Win! Paper beats Rock.";
-        } else if (computerSelection === "scissors") {
+        } else {
             return "You Lose! Scissors beats Paper.";
         }
     }
@@ -43,11 +43,12 @@ function playRound(playerSelection, computerSelection) {
 
         if (computerSelection === "paper") {
             return "You Win! Scissors beats Paper.";
-        } else if (computerSelection === "rock") {
+        } else {
             return "You Lose! Rock beats Scissors.";
         }
     }
 }
 
+const playerSelection = "paper";
 
-console.log(playRound("paper", computerSelection));
+console.log(playRound(playerSelection, computerSelection));
