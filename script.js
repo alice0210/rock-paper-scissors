@@ -3,13 +3,17 @@ function getComputerChoice() {
     let randomNumber = Math.floor(Math.random()* 3) + 1
 
     if (randomNumber === 1) {
-        return "Rock"; 
+        return "rock"; 
     } if (randomNumber === 2) {
-        return "Paper";
+        return "paper";
     } if (randomNumber === 3) {
-        return "Scissors";
+        return "scissors";
     }      
 }
+
+console.log(getComputerChoice());
+
+const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
 
@@ -17,31 +21,33 @@ function playRound(playerSelection, computerSelection) {
         return "It's a tie!";
     }
 
-    if (playerSelection.toUpperCase === "rock".toUpperCase) {
+    if (playerSelection === "rock") {
 
-        if (computerSelection.toUpperCase === "scissors".toUpperCase) {
+        if (computerSelection === "scissors") {
             return "You Win! Rock beats Scissors.";
-        } if (computerSelection.toUpperCase === "paper".toUpperCase) {
+        } else if (computerSelection === "paper") {
             return "You Lose! Paper beats Rock.";
         }
     }
 
-    if (playerSelection.toUpperCase === "paper".toUpperCase) {
+    else if (playerSelection === "paper") {
 
-        if (computerSelection.toUpperCase === "rock".toUpperCase) {
+        if (computerSelection === "rock") {
             return "You Win! Paper beats Rock.";
-        } if (computerSelection.toUpperCase === "scissors".toUpperCase) {
+        } else if (computerSelection === "scissors") {
             return "You Lose! Scissors beats Paper.";
         }
     }
 
-    if (playerSelection.toUpperCase === "scissors".toUpperCase) {
+    else if (playerSelection === "scissors") {
 
-        if (computerSelection.toUpperCase === "paper".toUpperCase) {
+        if (computerSelection === "paper") {
             return "You Win! Scissors beats Paper.";
-        } if (computerSelection.toUpperCase === "rock".toUpperCase) {
+        } else if (computerSelection === "rock") {
             return "You Lose! Rock beats Scissors.";
         }
     }
 }
 
+
+console.log(playRound("paper", computerSelection));
