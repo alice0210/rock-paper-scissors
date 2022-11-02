@@ -17,16 +17,16 @@ let computerScore=0;
 
 function playRound(playerSelection, computerSelection) {
 
-    if (playerSelection === computerSelection) {
+    if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
         computerScore += 0;
         playerScore += 0;
         return "It's a tie!";
         
     }
 
-    if (playerSelection === "rock") {
+    if (playerSelection.toUpperCase() === "ROCK") {
 
-        if (computerSelection === "scissors") {
+        if (computerSelection.toUpperCase() === "SCISSORS") {
             playerScore += 1;
             return "You Win! Rock beats Scissors.";
             
@@ -37,9 +37,9 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    else if (playerSelection === "paper") {
+    else if (playerSelection.toUpperCase() === "PAPER") {
 
-        if (computerSelection === "rock") {
+        if (computerSelection.toUpperCase() === "ROCK") {
             playerScore += 1;
             return "You Win! Paper beats Rock.";
             
@@ -50,9 +50,9 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    else if (playerSelection === "scissors") {
+    else if (playerSelection.toUpperCase() === "SCISSORS") {
 
-        if (computerSelection === "paper") {
+        if (computerSelection.toUpperCase() === "PAPER") {
             playerScore += 1;
             return "You Win! Scissors beats Paper.";
             
@@ -83,7 +83,7 @@ function game() {
 
         let computerSelection = getComputerChoice();
         
-        console.log("Your Selection: " +playerSelection);
+        console.log("Your Selection: " +playerSelection.toLowerCase());
 
         console.log("Computer Selection: " +computerSelection);
 
