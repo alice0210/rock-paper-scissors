@@ -25,46 +25,31 @@ function playRound(playerSelection, computerSelection) {
         
     }
 
-    if (playerSelection.toUpperCase() === "ROCK") {
-
-        if (computerSelection.toUpperCase() === "SCISSORS") {
+    if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {
             playerScore += 1;
             console.log( "You Win! Rock beats Scissors.");
             
-        } else {
+        } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER"){
             computerScore += 1;
             console.log("You Lose! Paper beats Rock.");
             
-        }
-    }
-
-    else if (playerSelection.toUpperCase() === "PAPER") {
-
-        if (computerSelection.toUpperCase() === "ROCK") {
+        } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {
             playerScore += 1;
             console.log("You Win! Paper beats Rock.");
             
-        } else {
+        } else if(playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {
             computerScore += 1;
             console.log("You Lose! Scissors beats Paper.");
-            
-        }
-    }
 
-    else if (playerSelection.toUpperCase() === "SCISSORS") {
-
-        if (computerSelection.toUpperCase() === "PAPER") {
+        } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
             playerScore += 1;
             console.log("You Win! Scissors beats Paper.");
-            
-        } else {
+        
+        } else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
             computerScore += 1;
             console.log("You Lose! Rock beats Scissors.");
-            
         }
     }
-}
-
 
 const rockbtn = document.querySelector('#rock');
 const paperbtn = document.querySelector('#paper');
@@ -119,4 +104,4 @@ function scores () {
 
 
 //game();
-console.log(scores());
+//console.log(scores());
