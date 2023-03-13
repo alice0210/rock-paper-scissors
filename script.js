@@ -11,6 +11,10 @@ function getComputerChoice() {
     }      
 }
 
+const container = document.querySelector('#container');
+const results = document.createElement('h3');
+results.classList.add('results');
+
 let playerScore=0;
 let computerScore=0;
 
@@ -21,33 +25,39 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
         computerScore += 0;
         playerScore += 0;
-        console.log("It's a tie!");
-        
+        results.textContent = "It's a tie!";
+        container.appendChild(results);
     }
 
     if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {
             playerScore += 1;
-            console.log( "You Win! Rock beats Scissors.");
+            results.textContent = "You Win! Rock beats Scissors.";
+            container.appendChild(results);
             
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER"){
             computerScore += 1;
-            console.log("You Lose! Paper beats Rock.");
+            results.textContent = "You Lose! Paper beats Rock.";
+            container.appendChild(results);
             
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {
             playerScore += 1;
-            console.log("You Win! Paper beats Rock.");
+            results.textContent = "You Win! Paper beats Rock.";
+            container.appendChild(results);
             
         } else if(playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {
             computerScore += 1;
-            console.log("You Lose! Scissors beats Paper.");
+            results.textContent = "You Lose! Scissors beats Paper.";
+            container.appendChild(results);
 
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
             playerScore += 1;
-            console.log("You Win! Scissors beats Paper.");
+            results.textContent = "You Win! Scissors beats Paper.";
+            container.appendChild(results);
         
         } else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
             computerScore += 1;
-            console.log("You Lose! Rock beats Scissors.");
+            results.textContent = "You Lose! Rock beats Scissors.";
+            container.appendChild(results);
         }
     }
 
