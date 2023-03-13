@@ -15,6 +15,22 @@ const container = document.querySelector('#container');
 const results = document.createElement('h3');
 results.classList.add('results');
 
+
+document.getElementById('rock').addEventListener('click', () => {
+    playRound("rock", getComputerChoice());
+})
+document.getElementById('paper').addEventListener('click', () => {
+    playRound("paper", getComputerChoice());
+})
+document.getElementById('scissors').addEventListener('click', () => {
+    playRound("scissors", getComputerChoice());
+})
+
+const yourScore = document.createElement('h3');
+yourScore.classList.add('yourScore');
+const compScore = document.createElement('h3');
+compScore.classList.add('compScore');
+
 let playerScore=0;
 let computerScore=0;
 
@@ -22,70 +38,88 @@ let computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
 
-    if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+    if (playerSelection === computerSelection) {
         computerScore += 0;
         playerScore += 0;
         results.textContent = "It's a tie!";
         container.appendChild(results);
+        yourScore.textContent = "Your score: " +playerScore;
+        container.appendChild(yourScore);
+        compScore.textContent = "Computer score: " +computerScore;
+        container.appendChild(compScore);
     }
 
-    if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {
-            playerScore += 1;
-            results.textContent = "You Win! Rock beats Scissors.";
+    if (playerSelection === "rock" && computerSelection === "scissors") {
+            playerScore++;
+            results.textContent = "You Win! Rock beats scissors.";
             container.appendChild(results);
+            yourScore.textContent = "Your score: " +playerScore;
+            container.appendChild(yourScore);
+            compScore.textContent = "Computer score: " +computerScore;
+            container.appendChild(compScore);
             
-        } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER"){
-            computerScore += 1;
+        } else if (playerSelection === "rock" && computerSelection === "paper"){
+            computerScore++;
             results.textContent = "You Lose! Paper beats Rock.";
             container.appendChild(results);
+            yourScore.textContent = "Your score: " +playerScore;
+            container.appendChild(yourScore);
+            compScore.textContent = "Computer score: " +computerScore;
+            container.appendChild(compScore);
             
-        } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {
-            playerScore += 1;
+        } else if (playerSelection === "paper" && computerSelection === "rock") {
+            playerScore++;
             results.textContent = "You Win! Paper beats Rock.";
             container.appendChild(results);
+            yourScore.textContent = "Your score: " +playerScore;
+            container.appendChild(yourScore);
+            compScore.textContent = "Computer score: " +computerScore;
+            container.appendChild(compScore);
             
-        } else if(playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {
-            computerScore += 1;
-            results.textContent = "You Lose! Scissors beats Paper.";
+        } else if(playerSelection === "paper" && computerSelection === "scissors") {
+            computerScore++;
+            results.textContent = "You Lose! scissors beats Paper.";
             container.appendChild(results);
+            yourScore.textContent = "Your score: " +playerScore;
+            container.appendChild(yourScore);
+            compScore.textContent = "Computer score: " +computerScore;
+            container.appendChild(compScore);
 
-        } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
-            playerScore += 1;
-            results.textContent = "You Win! Scissors beats Paper.";
+        } else if (playerSelection === "scissors" && computerSelection === "paper") {
+            playerScore++;
+            results.textContent = "You Win! scissors beats Paper.";
             container.appendChild(results);
+            yourScore.textContent = "Your score: " +playerScore;
+            container.appendChild(yourScore);
+            compScore.textContent = "Computer score: " +computerScore;
+            container.appendChild(compScore);
         
-        } else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
-            computerScore += 1;
-            results.textContent = "You Lose! Rock beats Scissors.";
+        } else if(playerSelection === "scissors" && computerSelection === "rock") {
+            computerScore++;
+            results.textContent = "You Lose! Rock beats scissors.";
             container.appendChild(results);
+            yourScore.textContent = "Your score: " +playerScore;
+            container.appendChild(yourScore);
+            compScore.textContent = "Computer score: " +computerScore;
+            container.appendChild(compScore);
         }
+
     }
 
-const rockbtn = document.querySelector('#rock');
-const paperbtn = document.querySelector('#paper');
-const scissorsbtn = document.querySelector('#scissors');
-
-rockbtn.addEventListener('click', () => {
-    playRound("rock", getComputerChoice());
-});
-paperbtn.addEventListener('click', () => {
-    playRound("paper", getComputerChoice());
-});
-scissorsbtn.addEventListener('click', () => {
-    playRound("scissors", getComputerChoice());
-});
+//const finalResults = document.createElement('h2');
+//finalResults.classList.add('finalResults');
 
 
 function scores () {
-    
-    if (playerScore > computerScore) {
-        console.log("You win!");
-    } else if (computerScore > playerScore) {
-        console.log("You lose!");
-    } else {
-        console.log("It's a tie!");
+    if (playerScore === 5 && computerScore <= 5) {
+        finalResults.textContent = "Game Over! You win!";
+        container.appendChild(finalResults);
+    } else if (computerScore === 5 && playerScore <= 5) {
+        finalResults.textContent = "Game Over! You lose!";
+        container.appendChild(finalResults);
     }
 }
+scores();
 
 
 
@@ -93,25 +127,17 @@ function scores () {
 
 //function game() {
 
-    //for (let i=0; i < 100; i++) {
-        
-        //let playerSelection = prompt("Rock, paper, or scissors?");
+//   for (let i=0; i < 5; i++) {      
 
-      //  let computerSelection = getComputerChoice();
-        
-    //    console.log("Your Selection: " +playerSelection.toLowerCase());
+//        let computerSelection = getComputerChoice();
+//        let playerSelection = playerChoice();     
 
-  //      console.log("Computer Selection: " +computerSelection);
+        //console.log("Your Selection: " +playerSelection);
 
-//        console.log(playRound(playerSelection, computerSelection));
+        //console.log("Computer Selection: " +computerSelection);
 
-  //      console.log("Your score: " +playerScore);
 
-//        console.log("Computer score: " +computerScore);
-
-  //  }
+//    }
 //}
-
-
 //game();
-//console.log(scores());
+
