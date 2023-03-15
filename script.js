@@ -11,6 +11,9 @@ const yourScore = document.createElement('h3');
 yourScore.classList.add('yourScore');
 const compScore = document.createElement('h3');
 compScore.classList.add('compScore');
+const refresh = document.createElement('h2');
+refresh.classList.add('refresh');
+refresh.textContent = "Refresh the page to play again.";
 
 
 function getComputerChoice() {
@@ -24,19 +27,6 @@ function getComputerChoice() {
         return "scissors";
     }      
 }
-
-
-
-//    document.getElementById('rock').addEventListener('click', () => {
-//        playRound("rock", getComputerChoice());
-//    })
-//    document.getElementById('paper').addEventListener('click', () => {
-//        playRound("paper", getComputerChoice());
-//    })
-//    document.getElementById('scissors').addEventListener('click', () => {
-//        playRound("scissors", getComputerChoice());
-//    })
-
 
 buttons.forEach(function(button){
 
@@ -121,10 +111,19 @@ buttons.forEach(function(button){
             if (playerScore === 5) {        
                 finalResults.textContent = "Game Over! You win!";
                 container.appendChild(finalResults);
+                container.appendChild(refresh);
             } else if (computerScore === 5) {            
                 finalResults.textContent = "Game Over! You lose!";
                 container.appendChild(finalResults);
+                container.appendChild(refresh);
             }
         }
+
+        if (playerScore === 5 || computerScore === 5){
+            for (var i = 0; i < buttons.length; i++){
+                buttons[i].disabled = true;
+            };
+        };
+
     });
 });
